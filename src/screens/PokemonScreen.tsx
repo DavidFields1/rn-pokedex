@@ -9,6 +9,7 @@ import { RootStackParamList } from '../navigation/StackNavigation'
 import usePokemonInfo from '../hooks/usePokemonInfo';
 import PokemonDetails from '../components/PokemonDetails';
 import { capitalize } from 'lodash';
+import Loading from '../components/Loading'
 
 interface Props extends StackScreenProps<RootStackParamList ,'PokemonScreen'> {}
 
@@ -62,7 +63,7 @@ const PokemonScreen = ({ route }:Props) => {
             <View style={{ height: 340 }}>
                 {
                     false ? (
-                        <ActivityIndicator size={80} color={color} style={{ alignSelf: 'center', marginTop: 60 }} />
+                        <Loading />
                     ) : (
                         <PokemonDetails pokemon={pokemonInfo}/>
                     )

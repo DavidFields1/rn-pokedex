@@ -16,32 +16,32 @@ const PokemonList = ({ simplePokemonList, loadPokemon }: Props) => {
     
     return (
         <>
-        <FlatList
-            ListHeaderComponent={(
-                <Text style={[styles.title, { marginTop: top + 10, marginBottom: 10, marginHorizontal: 12 }]}>
-                    Pokedex
-                </Text>
-            )}  
-            numColumns={2}
-            data={simplePokemonList}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
-                <PokemonCard pokemon={item} />
-            )}
-            showsVerticalScrollIndicator={false}
-            
-            // infinite scroll
-            onEndReached={loadPokemon}
-            onEndReachedThreshold={0.5}
+            <FlatList
+                ListHeaderComponent={(
+                    <Text style={[styles.title, { marginTop: top + 10, marginBottom: 10, marginHorizontal: 12 }]}>
+                        Pokedex
+                    </Text>
+                )}  
+                numColumns={2}
+                data={simplePokemonList}
+                keyExtractor={(item) => item.id}
+                renderItem={({ item }) => (
+                    <PokemonCard pokemon={item} />
+                )}
+                showsVerticalScrollIndicator={false}
                 
-            ListFooterComponent={(
-                <ActivityIndicator 
-                style={{ height: 80 }}
-                size="large" 
-                color="grey" 
-                />
-            )}
-        />
+                // infinite scroll
+                onEndReached={loadPokemon}
+                onEndReachedThreshold={0.5}
+                    
+                ListFooterComponent={(
+                    <ActivityIndicator 
+                    style={{ height: 80 }}
+                    size="large" 
+                    color="grey" 
+                    />
+                )}
+            />
         </>
     )
 }
